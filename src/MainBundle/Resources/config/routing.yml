@@ -1,0 +1,11 @@
+main:
+    path: /
+    defaults: {_controller: MainBundle:Menu:index }
+    
+register:
+    path: /register
+    defaults: {_controller: MainBundle:Menu:register }
+    
+about:
+    path: /about
+    defaults: {_controller: MainBundle:Menu:about} 

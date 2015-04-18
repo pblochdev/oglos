@@ -1,0 +1,41 @@
+ul>li{
+    float:left;
+    padding: 10px;
+    padding-right:20px;
+    padding-left: 20px; 
+    border-right: solid white 1px;
+    
+   
+    color: white;
+    text-decoration: none;
+    line-height:30px;
+}
+ul>li:first-child{
+    border-left: solid white 1px;
+}
+ul{
+    list-style-type: none;
+    width: 100%;
+    background-color: #000;
+    float:left;
+    //border-radius: 5px;
+    padding: 0px;
+    margin-top: 0px;
+    padding-left: 100px;
+}
+
+a, a:visited,a:link,a:active, a:hover{
+    display: block;
+    text-decoration: none;
+    color:#FFF;
+     font-family: 'WebSymbolsRegular', cursive;
+}
+
+body{
+    margin: 50px;
+}
+
+
+#main_content{
+    margin-left: 100px;
+}
