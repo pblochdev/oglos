@@ -1,0 +1,36 @@
+MainBundle\Entity\User:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        surename:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        sex:
+            type: string
+            length: 255
+        born:
+            type: date
+        woj:
+            type: string
+            length: 255
+        city:
+            type: string
+            length: 255
+        kategoria:
+            type: string
+            length: 255
+        rule:
+            type: boolean
+    lifecycleCallbacks: {  }

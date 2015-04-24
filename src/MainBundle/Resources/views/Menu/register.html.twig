@@ -2,8 +2,23 @@
 {% block content%}
     
     <meta charset='utf8'/>
-    <div style="width:500px; margin:auto"> 
-      {{form(form, {'attr': {'novalidate':'true'}})}}  
+    
+    
+    <div class="container">
+        
+        {% if form is not null %}
+            {% for type, messages in app.session.flashbag.all %}
+                {% for msg in messages %}
+                    <div class="alert alert-{{type}}">{{ msg }}</div>
+                {% endfor %}
+            {% endfor %}
+            {{form(form, {'attr': {'novalidate':'true'}})}}  
+        {% else %}
+            <div class="panel panel-success">
+                Rejestracja przebiegła poprawnie! 
+            </div>
+        {% endif %}
+      
     </div> 
     
 
