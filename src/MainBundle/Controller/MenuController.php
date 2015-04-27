@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Validator\Constraints  as Assert;
+use MainBundle\Entity\User;
 
 class MenuController extends Controller
 {
@@ -26,10 +27,12 @@ class MenuController extends Controller
     public function registerAction(Request $request)
     {
         $session = $this->get('session');
+        
+        $user = new User();
+        
+        if(true){
             
-        if($session->get('register')){
-            
-            $form = $this->createFormBuilder()
+            $form = $this->createFormBuilder($user)
                     ->add('name','text',array(
                         'label'=>'Imię',
                         'constraints' => array(
@@ -88,7 +91,7 @@ class MenuController extends Controller
                                     'm'=> 'matematyka'
                                 )
                             ))
-                    ->add('rules','checkbox', array(
+                    ->add('rule','checkbox', array(
                         'label'=>'Akceptuje regulamin',
                         'constraints' => array(
                             new Assert\NotBlank()
@@ -102,7 +105,9 @@ class MenuController extends Controller
 
             if($form->isValid()){
                 $session->GetFlashBag()->add('success', 'Rejestracja przebiegła poprawnie!');
-               
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
                 $session->set('register',true);
                 return $this->redirect($this->generateUrl('register'));
                 
@@ -117,6 +122,9 @@ class MenuController extends Controller
         );
         
     }
+    
+    
+    
     /**
      * 
      * 

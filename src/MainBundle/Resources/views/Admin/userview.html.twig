@@ -1,0 +1,30 @@
+{% extends "MainBundle::base.html.twig"%}
+{% block content%}
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Województwo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for entry in rows %}
+                <tr>
+                
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.forename }}</td>
+                <td>{{ entry.woj }}</td>
+                <td><a class="btn btn-info" href="{{ path('details',{'id' : entry.id}) }}">Szczególy</a></td>
+               {% else %}
+               <td colspan="4">Brak danych</td>
+               </tr>
+               {% endfor %}
+            
+        </tbody>
+    </table>
+        
+{% endblock %}

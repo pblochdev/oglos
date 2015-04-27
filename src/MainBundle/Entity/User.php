@@ -22,7 +22,7 @@ class User
     /**
      * @var string
      */
-    private $surename;
+    private $forename;
 
     /**
      * @var string
@@ -94,26 +94,26 @@ class User
     }
 
     /**
-     * Set surename
+     * Set forename
      *
-     * @param string $surename
+     * @param string forename
      * @return User
      */
-    public function setSurename($surename)
+    public function setForename($forename)
     {
-        $this->surename = $surename;
+        $this->forename = $forename;
 
         return $this;
     }
 
     /**
-     * Get surename
+     * Get forename
      *
      * @return string 
      */
-    public function getSurename()
+    public function getForename()
     {
-        return $this->surename;
+        return $this->forename;
     }
 
     /**
@@ -276,4 +276,6 @@ class User
     {
         return $this->rule;
     }
+    
+   
 }
