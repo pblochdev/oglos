@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Validator\Constraints  as Assert;
 use MainBundle\Entity\User;
+use MainBundle\Entity\Advert;
 
 class MenuController extends Controller
 {
@@ -133,5 +134,63 @@ class MenuController extends Controller
     public function aboutAction(){
         return array();
     }
+    
+    /**
+     * @Template
+     */
+    public function addAdvertAction(Request $request){
+       
+        
+        $advert = new Advert();
+        $session = $this->get('session');
+        
+            $form = $this->createFormBuilder($advert)
+                    ->add('title','text',array(
+                        'label'=>'Tytuł',
+                        'constraints' => array(
+                            new Assert\NotBlank()),
+
+                    ))
+                    ->add('text','textarea',array(
+                        'label'=>'Zawartość',
+                        'constraints' => array(
+                            new Assert\NotBlank()),
+                    ))
+ 
+                    ->add('Dodaj ogłoszenie','submit')
+                    ->getForm();
+            $form ->handleRequest($request);
+        if($request->isMethod('POST')){
+            if($form->isValid()){
+                $session->GetFlashBag()->add('success', 'Rejestracja przebiegła poprawnie!');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($advert);
+                $em->flush();
+                $session->set('register',TRUE);
+                return $this->redirect($this->generateUrl('new_advert'));
+                
+            }else{
+                $session->set('register', FALSE);
+            }
+       
+        }   
+        
+        return array(
+             'form' => $form->createView()
+        );
+    }
+    /**
+     * @Template
+     */
+    public function AdvertsAction(){
+        $repo = $this->getDoctrine()->getRepository('MainBundle:Advert');
+        $adverts = $repo->findAll();
+        if($adverts == null)
+            throw $this->createNotFoundException ('Nie ma żadnych ogłoszeń');
+        return array(
+            'adverts' => $adverts 
+        );
+    }
+        
 }
 

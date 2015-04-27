@@ -6,11 +6,19 @@ register:
     path: /register
     defaults: {_controller: MainBundle:Menu:register }
     
-about:
+view:
     path: /view
     defaults: {_controller: MainBundle:Admin:userview} 
     
 details:
     path: /details/{id}
     defaults: {_controller: MainBundle:Admin:details} 
+    
+new_advert:
+    path: /new_advert
+    defaults: {_controller: MainBundle:Menu:addAdvert }
+
+adverts:
+    path: /adverts
+    defaults: {_controller: MainBundle:Menu:adverts }
     

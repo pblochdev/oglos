@@ -1,0 +1,22 @@
+MainBundle\Entity\Advert:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        text:
+            type: string
+            length: '2056'
+        photo:
+            type: string
+            length: 255
+        date:
+            type: date
+    lifecycleCallbacks: {  }

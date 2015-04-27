@@ -1,0 +1,18 @@
+{% extends "MainBundle::base.html.twig" %}
+{% block content %}
+    {% if app.session.get('register') %}
+        <div class="panel panel-success">
+            Rejestracja przebiegła poprawnie! 
+        </div>
+    {% else %}
+        <div class="panel panel-danger">
+            Nie udało się dodać ogłoszenia 
+        </div>
+    {% endif %}
+    
+    {{form(form,  {'attr': {'novalidate':'true'}})}}
+    
+        
+    
+    
+{% endblock %}    
