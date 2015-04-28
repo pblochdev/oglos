@@ -27,12 +27,12 @@ class Advert
     /**
      * @var string
      */
-    private $photo;
+    private $photo = null ;
 
     /**
      * @var \DateTime
      */
-    private $date;
+    private $date = null;
 
 
     /**

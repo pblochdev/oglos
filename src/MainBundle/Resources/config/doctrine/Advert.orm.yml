@@ -17,6 +17,8 @@ MainBundle\Entity\Advert:
         photo:
             type: string
             length: 255
+            nullable: TRUE
         date:
             type: date
+            nullable: TRUE
     lifecycleCallbacks: {  }

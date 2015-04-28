@@ -34,12 +34,24 @@ class MenuController extends Controller
         if(true){
             
             $form = $this->createFormBuilder($user)
+                    ->add('username','text',array(
+                        'label'=>'Nazwa użytkownika',
+                        'constraints' => array(
+                            new Assert\NotBlank()),
+
+                    ))
+                    ->add('password','password',array(
+                        'label'=>'Hasło',
+                        'constraints' => array(
+                            new Assert\NotBlank()),
+
+                    ))
                     ->add('name','text',array(
                         'label'=>'Imię',
                         'constraints' => array(
                             new Assert\NotBlank()),
 
-                    ))
+                    ))                    
                     ->add('forename','text',array(
                         'label'=>'Nazwisko'
                     ))

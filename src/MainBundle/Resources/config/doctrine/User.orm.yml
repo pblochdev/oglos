@@ -14,9 +14,7 @@ MainBundle\Entity\User:
         forename:
             type: string
             length: 255
-        email:
-            type: string
-            length: 255
+        
         sex:
             type: string
             length: 255
