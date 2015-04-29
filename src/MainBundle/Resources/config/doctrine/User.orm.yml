@@ -14,7 +14,7 @@ MainBundle\Entity\User:
         forename:
             type: string
             length: 255
-        
+            nullable: TRUE
         sex:
             type: string
             length: 255

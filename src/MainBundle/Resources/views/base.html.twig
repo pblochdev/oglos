@@ -26,9 +26,27 @@
             <li>
                 <a href="{{path('adverts')}}">Ogłoszenia</a>
             </li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li>           
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+            </li>
+            <li>
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>               
+            </li>
+                
+            {% else %}
+                <li>
+                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>   
+                </li>
+                
+            {% endif %}
+       
+           
         </ul>
         <div class="content" id="main_content">
-            {% block content %}{% endblock %}
+            {% block content %}{% block fos_user_content %}{% endblock %}{% endblock %}
         </div>
         
 

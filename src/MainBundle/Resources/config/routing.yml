@@ -3,7 +3,7 @@ main:
     defaults: {_controller: MainBundle:Menu:index }
     
 register:
-    path: /register
+    path: /registerz
     defaults: {_controller: MainBundle:Menu:register }
     
 view:
