@@ -48,7 +48,12 @@
         <div class="content" id="main_content">
             {% block content %}{% block fos_user_content %}{% endblock %}{% endblock %}
         </div>
-        
+        <div>
+            {% set adverts = get_last_adverts() %}
+                  {% for row in adverts %}
+                      {{ row.title }}
+            {% endfor %}
+        </div>
 
 </form>
         
