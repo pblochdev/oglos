@@ -30,6 +30,9 @@ a, a:visited,a:link,a:active, a:hover{
     color:#FFF;
      font-family: 'WebSymbolsRegular', cursive;
 }
+.panel{
+    font-family: 'WebSymbolsRegular', cursive;
+}
 
 body{
     margin: 50px;
@@ -37,6 +40,9 @@ body{
 
 
 #main_content{
-    width: 700px;
-    margin: auto;
+    
+    //width: 700px;
+    width:60%;
+    margin-left: 100px;
+    margin-right: 100px;
 }

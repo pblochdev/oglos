@@ -1,14 +1,14 @@
 <?php
 
 namespace MainBundle\Service;
-use Doctrine\ORM\EntityManager;
+
 
 class advertService extends \Twig_Extension{
     
     protected $em;
     
     public function __construct($_em) {
-        $this->em = $_em;
+       $this->em = $_em;
     }
 
 
@@ -19,12 +19,11 @@ class advertService extends \Twig_Extension{
     public function getFunctions()
     {
         return array(
-            'get_last_adverts' => new \Twig_Function_Method($this, 'getLastAdverts')
+            new \Twig_SimpleFunction('getAdverts', array($this, 'getLastAdverts'))
         );
-    }
-    
+    } 
+   
     public function getLastAdverts(){
         return $this->em->getRepository('MainBundle:Advert')->findAll();
-        
     }
 }

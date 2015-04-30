@@ -1,7 +1,8 @@
-parameters:
-    main.service.advert.class: MainBundle\Resources\views\advertService
-    
 services:
-    main_adverts:
-        class: %main.service.advert.class%
-        arguments: [@doctrine.orm.entity_manager]
+    app.twig_extension:
+        class: MainBundle\Service\advertService
+        arguments: 
+             - @doctrine.orm.entity_manager
+        tags:
+            - { name: twig.extension }
+        
