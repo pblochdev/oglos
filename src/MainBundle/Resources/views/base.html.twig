@@ -25,17 +25,17 @@
             </li>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li>           
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+                Zalogowany jako {{ app.user.name}} 
             </li>
             <li>
                 <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                   Wyloguj
                 </a>               
             </li>
                 
             {% else %}
                 <li>
-                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>   
+                 <a href="{{ path('fos_user_security_login') }}">Zaloguj</a>   
                 </li>
                 
             {% endif %}

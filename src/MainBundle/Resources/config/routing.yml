@@ -21,4 +21,9 @@ new_advert:
 adverts:
     path: /adverts
     defaults: {_controller: MainBundle:Menu:adverts }
-    
+
+advert:
+    path: /advert/{id}
+    defaults: {_controller: MainBundle:Advert:advertDetails }   
+
+        
