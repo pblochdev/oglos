@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="padam87_search.converter.util.parameter_builder.class">Padam87\SearchBundle\Filter\Converter\Util\ParameterBuilder</parameter>
+        <parameter key="padam87_search.converter.util.expr_builder.class">Padam87\SearchBundle\Filter\Converter\Util\ExprBuilder</parameter>
+        <parameter key="padam87_search.converter.util.operator_handler.class">Padam87\SearchBundle\Filter\Converter\Util\OperatorHandler</parameter>
+        <parameter key="padam87_search.converter.manager.class">Padam87\SearchBundle\Filter\Converter\ConverterManager</parameter>
+        <parameter key="padam87_search.converter.array.class">Padam87\SearchBundle\Filter\Converter\ArrayConverter</parameter>
+        <parameter key="padam87_search.converter.entity.class">Padam87\SearchBundle\Filter\Converter\EntityConverter</parameter>
+        <parameter key="padam87_search.converter.collection.class">Padam87\SearchBundle\Filter\Converter\CollectionConverter</parameter>
+        <parameter key="padam87_search.filter.manager.class">Padam87\SearchBundle\Filter\FilterManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="padam87_search.converter.util.parameter_builder" class="%padam87_search.converter.util.parameter_builder.class%">
+        </service>
+        <service id="padam87_search.converter.util.expr_builder" class="%padam87_search.converter.util.expr_builder.class%">
+        </service>
+        <service id="padam87_search.converter.util.operator_handler" class="%padam87_search.converter.util.operator_handler.class%">
+        </service>
+        <service id="padam87_search.converter.manager" class="%padam87_search.converter.manager.class%">
+        </service>
+        <service id="padam87_search.converter.array" class="%padam87_search.converter.array.class%">
+            <argument type="service" id="padam87_search.converter.util.parameter_builder" />
+            <argument type="service" id="padam87_search.converter.util.expr_builder" />
+            <argument type="service" id="padam87_search.converter.util.operator_handler" />
+            <tag name="padam87_search.converter" />
+        </service>
+        <service id="padam87_search.converter.entity" class="%padam87_search.converter.entity.class%">
+            <argument type="service" id="padam87_search.converter.util.parameter_builder" />
+            <argument type="service" id="padam87_search.converter.util.expr_builder" />
+            <argument type="service" id="padam87_search.converter.util.operator_handler" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <tag name="padam87_search.converter" />
+        </service>
+        <service id="padam87_search.converter.collection" class="%padam87_search.converter.collection.class%">
+            <argument type="service" id="padam87_search.converter.util.parameter_builder" />
+            <argument type="service" id="padam87_search.converter.util.expr_builder" />
+            <argument type="service" id="padam87_search.converter.util.operator_handler" />
+            <call method="setConverterManager">
+                <argument type="service" id="padam87_search.converter.manager" />
+            </call>
+            <tag name="padam87_search.converter" />
+        </service>
+        <service id="padam87_search.filter.manager" class="%padam87_search.filter.manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="padam87_search.converter.manager" />
+        </service>
+    </services>
+</container>

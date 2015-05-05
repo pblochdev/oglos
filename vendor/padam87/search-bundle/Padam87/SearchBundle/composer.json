@@ -1,0 +1,28 @@
+{
+    "name": "padam87/search-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 SearchBundle",
+    "license": "MIT",
+    "keywords": ["symfony", "search"],
+    "homepage": "https://github.com/Padam87/SearchBundle",
+    "authors": [
+        {
+            "name": "Adam Prager",
+            "email": "prager.adam87@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Padam87\\SearchBundle": "" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": ">2.1.0",
+        "doctrine/orm": "*",
+        "doctrine/doctrine-bundle": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "target-dir": "Padam87/SearchBundle"
+}
