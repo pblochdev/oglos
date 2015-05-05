@@ -42,20 +42,24 @@
        
            
         </ul>
-        <div class="content" id="main_content" style="float:left">
-            {% block content %}{% endblock %}
+        <div class="content" id="main_content">
+            <div style="float:left; width: 65%">
+                {% block content %}{% endblock %}
+            </div>
+            
+        
+            <div class="panel panel-default" style="float:left; width: 25%; margin-left: 70px;"> 
+                <div class="panel-heading" style="background-color:black; color:white;">Ostatnio dodane ogłoszenia</div>
+
+                <ul class="list-group">
+                    {% set adverts = getAdverts() %}
+                    {% for row in adverts %}
+                        <li class="list-group-item">{{ row.title }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div> 
         </div>
-        <div class="panel panel-default" style="float:left; width: 20%;"> 
-            <div class="panel-heading" style="background-color:black; color:white;">Ostatnio dodane ogłoszenia</div>
-            
-            <ul class="list-group">
-                {% set adverts = getAdverts() %}
-                {% for row in adverts %}
-                    <li class="list-group-item">{{ row.title }}</li>
-                {% endfor %}
-            </ul>
-            
-        </div>   
 </form>
         
     </body>

@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new MainBundle\MainBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Padam87\SearchBundle\Padam87SearchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

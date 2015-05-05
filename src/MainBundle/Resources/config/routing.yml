@@ -26,4 +26,7 @@ advert:
     path: /advert/{id}
     defaults: {_controller: MainBundle:Advert:advertDetails }   
 
+search:
+    path: /search/{key}
+    defaults: {_controller: MainBundle:Advert:search }
         

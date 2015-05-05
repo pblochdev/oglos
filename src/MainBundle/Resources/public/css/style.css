@@ -42,7 +42,14 @@ body{
 #main_content{
     
     //width: 700px;
-    width:60%;
+    padding-top: 100px;
+    width:90%;
+    margin: auto;
     margin-left: 100px;
     margin-right: 100px;
+    //margin-top: 100px;
+}
+
+.panel-heading{
+    background-color: #000;
 }

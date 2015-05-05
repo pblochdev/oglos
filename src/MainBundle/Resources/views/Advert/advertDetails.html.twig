@@ -1,13 +1,15 @@
-{% extends "base.html.twig" %}
+{% extends "MainBundle::base.html.twig" %}
 
 {% block content%}
-    fdgfdg
-    {#<div class="panel panel-primary">
-        <div class="panel-heading">
-            {{advert.title}}
+   
+    <div class="panel panel-primary">
+        {% for entry in advert %}
+        <div class="panel-heading" style="background-color : #000">
+            {{ entry.title }}
         </div>
         <div class="panel-body">
-            {{advert.text}}
+            {{ entry.text }}
         </div>
-    </div>#}
+        {% endfor %}
+    </div>
 {% endblock %}
