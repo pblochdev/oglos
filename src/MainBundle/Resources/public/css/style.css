@@ -28,7 +28,7 @@ a, a:visited,a:link,a:active, a:hover{
     display: block;
     text-decoration: none;
     color:#FFF;
-     font-family: 'WebSymbolsRegular', cursive;
+    font-family: 'WebSymbolsRegular', cursive;
 }
 .panel{
     font-family: 'WebSymbolsRegular', cursive;
@@ -52,4 +52,11 @@ body{
 
 .panel-heading{
     background-color: #000;
+}
+
+.list-group-item>a{
+    display: block;
+    text-decoration: none;
+    color:#000;
+    font-family: 'WebSymbolsRegular', cursive;
 }

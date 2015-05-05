@@ -9,7 +9,7 @@
     <body>
         <ul id="top_menu"  >
             <li>
-                <a href="">Home</a>
+                <a href="{{path('main')}}">Szukaj</a>
             </li>
             <li>
                 <a href="{{path('fos_user_registration_register')}}">Rejestracja</a>
@@ -54,7 +54,9 @@
                 <ul class="list-group">
                     {% set adverts = getAdverts() %}
                     {% for row in adverts %}
-                        <li class="list-group-item">{{ row.title }}</li>
+                        <li class="list-group-item">
+                            <a href="{{path('advert',{'id':row.id})}}">{{ row.title }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
 

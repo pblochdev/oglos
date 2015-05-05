@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Padam87\SearchBundle;
 use Padam87\SearchBundle\Filter\Filter;
 use MainBundle\Entity\Advert;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class AdvertController extends Controller{
@@ -27,16 +28,25 @@ class AdvertController extends Controller{
     /**
      * @Template 
      */
-    public function searchAction($key){
-        $advert = new Advert();
-        $fm = $this->get('padam87_search.filter.manager');
-        $data = array(
-            'stringFiled' => '%'.$key.'%'
-        );
-        $filter = new Filter($data, 'MainBundle:Advert', 'title');
-        $qb = $fm->createQueryBuilder($filter);
+    public function searchAction(){
+        $request = Request::createFromGlobals();
+        $key='a';
+        if($request->getMethod()=='GET'){
+            $key = $request->query->get('key');
+        }
+//        $results = 'asd';
+//        $repo = $this->getDoctrine()->getRepository('MainBundle:Advert');
+//        $search_key =  $key;
+//        $results = $repo->findBy(array(
+//            'title' => $search_key
+//            ));
+        $em = $this->getDoctrine()->getManager();
+        $results = 'asd';
+        $q = "SELECT a.id, a.title FROM MainBundle:Advert a WHERE a.title like '%".$key."%'";
+        $query = $em->createQuery($q);
+        $res = $query->getResult();
         return array(
-            'results' => $qb
+            'results' => $res
         );
     }
 }

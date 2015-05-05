@@ -1,12 +1,17 @@
 {% extends "MainBundle::base.html.twig" %}
 {% block content %}
 
-{% for row in results %}
-    asd
-    {{ row.title }}
-{% else %}
-    Nie znaleziono wyników wyszukiwania
-   
-{% endfor %}
-    
+<div class="panel panel-default"> 
+    <div class="panel-heading" style="background-color:black; color:white;">Znalezione ogłoszenia</div>
+        <ul class="list-group">
+                {% for row in results %}
+                    <li class="list-group-item">
+                        <a href="{{path('advert',{'id':row.id})}}">{{ row.title }}</a>
+                    </li>
+                    {% else %}
+                        <li>Nie znaleziono wyników wyszukiwania</li>
+                {% endfor %}
+        </ul>
+    </div> 
+</div>    
 {% endblock %}
