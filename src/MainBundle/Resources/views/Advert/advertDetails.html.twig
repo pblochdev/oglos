@@ -1,6 +1,12 @@
 {% extends "MainBundle::base.html.twig" %}
+{% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/main/gallery/css/style.css')}}"/>
+    <script src="{{asset('bundles/main/gallery/js/modernizr.custom.70736.js')}}"></script>
+    <noscript><link rel="stylesheet" type="text/css" href="{{asset('bundles/main/gallery/css/noJS.css')}}"/></noscript>
+{% endblock %}
 
-{% block content%}
+{% block content %}
    
     <div class="panel panel-primary">
         {% for entry in advert %}
@@ -9,7 +15,62 @@
         </div>
         <div class="panel-body">
             {{ entry.text }}
-        </div>
+       
         {% endfor %}
+        <br>
+        <br>
+        <br>
+    <div class="container">
+            <div class="gamma-container gamma-loading" id="gamma-container">
+                <ul class="gamma-gallery">						
+                    <li>
+                        <div data-description="<h3>OGLOS.PL</h3>">					
+                            <div data-src="{{asset('bundles/main/images/anni.png')}}" ></div>
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div data-description="<h3>OGLOS.PL</h3>">					
+                            <div data-src="{{asset('bundles/main/images/photo1.png')}}" ></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="gamma-overlay"></div>
+            </div>
+        </div>
+        </div>
     </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="{{asset('bundles/main/gallery/js/jquery.masonry.min.js')}}"></script>
+        <script src="{{asset('bundles/main/gallery/js/jquery.history.js')}}"></script>
+        <script src="{{asset('bundles/main/gallery/js/js-url.min.js')}}"></script>
+        <script src="{{asset('bundles/main/gallery/js/jquerypp.custom.js')}}"></script>
+        <script src="{{asset('bundles/main/gallery/js/gamma.js')}}"></script>
+        <script type="text/javascript">			
+                $(function() {
+                        var GammaSettings = {
+                                        // order is important!
+                                        viewport : [ {
+                                                width : 1200,
+                                                columns : 5
+                                        }, {
+                                                width : 900,
+                                                columns : 4
+                                        }, {
+                                                width : 500,
+                                                columns : 3
+                                        }, { 
+                                                width : 320,
+                                                columns : 2
+                                        }, { 
+                                                width : 0,
+                                                columns : 2
+                                        } ]
+                        };
+
+                        Gamma.init( GammaSettings );
+                });
+        </script>
+       
+        
 {% endblock %}

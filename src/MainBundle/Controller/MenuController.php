@@ -168,7 +168,11 @@ class MenuController extends Controller
                         'constraints' => array(
                             new Assert\NotBlank()),
                     ))
- 
+                    ->add('photo','file',array(
+                        'label'=>'Wybierz zdjęcie',
+                        'constraints' => array(
+                            new Assert\NotBlank()),
+                    ))
                     ->add('Dodaj ogłoszenie','submit')
                     ->getForm();
             $form ->handleRequest($request);
