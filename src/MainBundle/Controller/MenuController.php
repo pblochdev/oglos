@@ -169,9 +169,7 @@ class MenuController extends Controller
                             new Assert\NotBlank()),
                     ))
                     ->add('photo','file',array(
-                        'label'=>'Wybierz zdjęcie',
-                        'constraints' => array(
-                            new Assert\NotBlank()),
+                        'label'=>'Wybierz zdjęcie', 
                     ))
                     ->add('Dodaj ogłoszenie','submit')
                     ->getForm();
@@ -183,6 +181,18 @@ class MenuController extends Controller
                 $em->persist($advert);
                 $em->flush();
                 $session->set('register',TRUE);
+                $savePath = $this->get('kernel')->getRootDir().'/../web/uploads/images/';
+                $file = $form->get('photo')->getData();
+                if($file!=null){
+                    $q="SELECT max(a.id) FROM MainBundle:Advert a";
+                    $query = $em->createQuery($q);
+                    $res = $query->getResult();
+                    $new_id =$res[0][1];
+                    $newName = "file_".$new_id.'.'.$file->guessExtension();
+                    $file->move($savePath,$newName);
+                    
+                }
+                
                 return $this->redirect($this->generateUrl('new_advert'));
                 
             }else{

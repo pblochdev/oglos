@@ -24,6 +24,17 @@ class advertService extends \Twig_Extension{
     } 
    
     public function getLastAdverts(){
-        return $this->em->getRepository('MainBundle:Advert')->findAll();
+        
+        $qb = $this->em->createQueryBuilder(); 
+        $adverts = $this->em->getRepository('MainBundle:Advert') 
+                ->findBy(array(), array('id' => 'DESC'), 10, 0);
+        $qb->add('select','a.id, a.title')
+          ->add('from','MainBundle:Advert a')
+          ->add('orderBy','a.id DESC')      
+          ->setMaxResults(10); 
+               
+        $query = $this->em->createQuery($qb);
+        $res = $query->getResult();
+        return $adverts;
     }
 }

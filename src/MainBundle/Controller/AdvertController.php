@@ -34,12 +34,7 @@ class AdvertController extends Controller{
         if($request->getMethod()=='GET'){
             $key = $request->query->get('key');
         }
-//        $results = 'asd';
-//        $repo = $this->getDoctrine()->getRepository('MainBundle:Advert');
-//        $search_key =  $key;
-//        $results = $repo->findBy(array(
-//            'title' => $search_key
-//            ));
+
         $em = $this->getDoctrine()->getManager();
         $results = 'asd';
         $q = "SELECT a.id, a.title FROM MainBundle:Advert a WHERE a.title like '%".$key."%'";
