@@ -28,12 +28,31 @@ class Advert
      * @var string
      */
     private $photo = null ;
+    
+    /**
+     * @var string
+     */
+    private $city = null ;
+    
+    /**
+     * @var string
+     */
+    private $price = null ;
+    
+    /**
+     * @var string
+     */
+    private $state = null ;
 
     /**
      * @var \DateTime
      */
     private $date = null;
-
+    
+    /**
+     * @var string
+     */
+    private $phone = null;
 
     /**
      * Get id
@@ -136,4 +155,101 @@ class Advert
     {
         return $this->date;
     }
+    
+    /**
+     * Set phone
+     *
+    * @param string $phone
+     * @return Advert
+     */
+    
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    
+    /**
+     * Set city
+     *
+    * @param string $city
+     * @return Advert
+     */
+    
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+    
+    /**
+     * Set price
+     *
+    * @param string $price
+     * @return Advert
+     */
+    
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    
+    /**
+     * Set state
+     *
+    * @param string $state
+     * @return Advert
+     */
+    
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+    
 }

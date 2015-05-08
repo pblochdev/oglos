@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/oglos/src/MainBundle/Service/advertService.php</file>
-            <file>file:/C:/xampp/htdocs/oglos/src/MainBundle/Resources/views/Advert/advertDetails.html.twig</file>
-            <file>file:/C:/xampp/htdocs/oglos/src/MainBundle/Controller/MenuController.php</file>
-            <file>file:/C:/xampp/htdocs/oglos/src/MainBundle/Resources/views/base.html.twig</file>
-            <file>file:/C:/xampp/htdocs/oglos/src/MainBundle/Controller/AdvertController.php</file>
+            <file>file:/D:/xampp/htdocs/oglos/src/MainBundle/Controller/AdvertController.php</file>
+            <file>file:/D:/xampp/htdocs/oglos/src/MainBundle/Controller/MenuController.php</file>
         </group>
     </open-files>
 </project-private>

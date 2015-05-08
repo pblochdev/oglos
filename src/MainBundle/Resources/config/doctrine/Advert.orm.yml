@@ -21,4 +21,20 @@ MainBundle\Entity\Advert:
         date:
             type: date
             nullable: TRUE
+        phone:
+            type: string
+            length: 255
+            nullable: TRUE
+        state:
+            type: string
+            length: 255
+            nullable: TRUE
+        city:
+            type: string
+            length: 255
+            nullable: TRUE
+        price:
+            type: string
+            length: 255
+            nullable: TRUE
     lifecycleCallbacks: {  }

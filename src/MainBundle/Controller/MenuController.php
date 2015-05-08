@@ -164,10 +164,22 @@ class MenuController extends Controller
 
                     ))
                     ->add('text','textarea',array(
-                        'label'=>'Zawartość',
+                        'label'=>'Opis',
                         'constraints' => array(
                             new Assert\NotBlank()),
                     ))
+                    ->add('phone','text',array(
+                        'label'=>'Telefon', 
+                    ))
+                    ->add('price','text',array(
+                        'label'=>'Cena', 
+                        'constraints' => array(
+                            new Assert\Type(array(
+                                'type'    => 'integer',
+                                'message' => 'The value {{ value }} is not a valid {{ type }}.',
+                    ))),
+                    ))
+                    
                     ->add('photo','file',array(
                         'label'=>'Wybierz zdjęcie', 
                     ))
