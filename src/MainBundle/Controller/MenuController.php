@@ -174,10 +174,7 @@ class MenuController extends Controller
                     ->add('price','text',array(
                         'label'=>'Cena', 
                         'constraints' => array(
-                            new Assert\Type(array(
-                                'type'    => 'integer',
-                                'message' => 'The value {{ value }} is not a valid {{ type }}.',
-                    ))),
+                            new Assert\NotBlank())
                     ))
                     
                     ->add('photo','file',array(

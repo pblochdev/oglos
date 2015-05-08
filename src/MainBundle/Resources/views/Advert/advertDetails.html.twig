@@ -17,23 +17,30 @@
             <div class="row">
                 <div class="col-md-8">
                     <table class="table">
-                        
+                        {% if entry.price%}
                         <tr>
                             <td><b>Cena:</b></td>
-                            <td>25</td>
+                            <td>{{entry.price}}</td>
                         </tr>
+                        {% endif %}
+                        {% if entry.phone %}
                         <tr>
                             <td><b>Telefon:</b></td>
-                            <td>435435435</td>
+                            <td>{{entry.phone}}</td>
                         </tr>
+                        {% endif %}
+                        {% if entry.city %}
                         <tr>
                             <td><b>Miasto:</b></td>
-                            <td>rojca</td>
+                            <td>{{entry.city}}</td>
                         </tr>
+                        {% endif %}
+                        {% if entry.state %}
                         <tr>
                             <td><b>Województwo:</b></td>
-                            <td>Śląskie</td>
+                            <td>{{entry.state}}</td>
                         </tr>
+                        {% endif %}
                         <tr>
                             <td colspan="2"><b>Opis:</b><br>{{entry.text}}</td>
                         </tr>
