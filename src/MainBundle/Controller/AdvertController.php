@@ -33,11 +33,20 @@ class AdvertController extends Controller{
         $key='a';
         if($request->getMethod()=='GET'){
             $key = $request->query->get('key');
+            $state = $request->query->get('state');
+            print_r($state);
         }
 
         $em = $this->getDoctrine()->getManager();
         $results = 'asd';
-        $q = "SELECT a.id, a.title FROM MainBundle:Advert a WHERE a.title like '%".$key."%'";
+        if($state=='-1'){
+            $q = "SELECT a.id, a.title FROM MainBundle:Advert a WHERE a.title like '%".$key."%'";
+        }else{
+            
+            $q = "SELECT a.id, a.title FROM MainBundle:Advert a WHERE a.title like '%".$key."%' AND a.state like '".$state."'";
+            print_r($q);
+            
+        }
         $query = $em->createQuery($q);
         $res = $query->getResult();
         return array(

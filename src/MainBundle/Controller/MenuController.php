@@ -176,6 +176,28 @@ class MenuController extends Controller
                         'constraints' => array(
                             new Assert\NotBlank())
                     ))
+                    ->add('state','choice',
+                            array(
+                                'choices'=>array(
+                                    'dolnośląskie',
+                                    'kujawsko-pomorskie',
+                                    'lubelskie',
+                                    'lubuskie',
+                                    'łódzkie',
+                                    'małopolskie',
+                                    'mazowieckie',
+                                    'opolskie',
+                                    'podkarpackie',
+                                    'podlaskie',
+                                    'pomorskie',
+                                    'śląskie',
+                                    'świętokrzyskie',
+                                    'warmińsko-mazurskie',
+                                    'wielkopolskie',
+                                    'zachodniopomorskie'
+                                ),
+                                'label'=>'Województwo'
+                            ))
                     
                     ->add('photo','file',array(
                         'label'=>'Wybierz zdjęcie', 

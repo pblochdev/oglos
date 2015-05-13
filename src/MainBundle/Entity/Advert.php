@@ -53,6 +53,8 @@ class Advert
      * @var string
      */
     private $phone = null;
+    
+    
 
     /**
      * Get id
